@@ -1,2 +1,2 @@
 # SistemaEstacionamento
-Sistema que gerenciar estacionamento de veículos (automóveis, motocicletas .....)
+Sistema que gerencia estacionamento de veículos (automóveis, motocicletas .....). 
