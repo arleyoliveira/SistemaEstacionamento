@@ -59,4 +59,16 @@
 		endif;
 	
 	}
+        
+        public function buscaVeiculoByPlaca($q){
+            $this->db->select('placa');
+            $this->db->like('placa', $q);
+            $query = $this->db->get('veiculo');
+            if($query->num_rows() > 0){
+              foreach ($query->result() as $row){
+                $row_set[] = htmlentities(stripslashes($row->placa)); //build an array
+              }
+              echo json_encode($row_set); //format the array into json data
+            }
+        }
  }

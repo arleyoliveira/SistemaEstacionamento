@@ -28,10 +28,18 @@
 			redirect('index.php/gerenciador/entrada');
 		endif;
 	}
+        
+        public function retornarCaixa(){
+      
+                $dados = array('status' => 1);
+                $condicao = "date(data) = date(now())";
+                $this->db->update('caixa', $dados, $condicao);
+
+	}
 	
 	public function get_ByPlacaSaida($placa = NULL){
 		if($placa != NULL):
-			$sql = "select * from DadosSaida where veiculo = ? and status = 1";
+			$sql = "select * from DadosSaida where veiculo = ? and status = true";
 			$query = $this->db->query($sql, array($placa));
 			if($query->num_rows() > 0):
 				return $query;
@@ -44,7 +52,8 @@
 		endif;		
 	}
 	
-	public function retirarVeiculo($dados = NULL, $condicao = NULL){
+	public function retirarVeiculo($dados = NULL, $veiculo = NULL){
+                $condicao = array('veiculo' => $veiculo, 'status' => 1);
 		if($dados != NULL && $condicao != NULL):
 			$this->db->update('gerenciador', $dados, $condicao);
 		endif;
@@ -84,12 +93,20 @@
 	
 	public function atualizarCaixa($valor = NULL, $condicao = NULL){
 		if($dados != NULL && $condicao != NULL):
-			$this->db->update('caixa', 'saldoFinac = saldoFinal + '.$valor, $condicao);
+			$this->db->update('caixa', 'saldoFinal = saldoFinal + '.$valor, $condicao);
 		endif;
+	}
+        
+        public function finalizarCaixa(){
+            $condicao = "date(data) = date(now())";
+            $dados = array('status' => 'false');
+            $this->db->update('caixa',$dados, $condicao);
+            $this->session->set_flashdata('caixafinalizado', IconsUtil::getIcone(IconsUtil::ICON_EXCLAMTION_SING) . ' O caixa foi finalizado com sucesso!');
+            redirect('/gerenciador/entrada');
 	}
 	
 	public function existeCaixaIniciado(){
-			$sql = "select * from caixa where date(data) = date(now())";
+		$sql = "select * from caixa where date(data) = date(now())";
 			$query = $this->db->query($sql);
 			if($query->num_rows() > 0):
 				return true;
@@ -97,5 +114,35 @@
 				return false;
 			endif;
 	}
-			
- }
+        
+        public function verificaStatus(){
+		$sql = "select * from caixa where date(data) = date(now()) and status = 1";
+			$query = $this->db->query($sql);
+			if($query->num_rows() > 0):
+				return true;
+			else:
+				return false;
+			endif;
+	}
+	
+     public function dadosEntraSaida() {
+        $sql = "select * from relatorioDiario";
+        $query = $this->db->query($sql);
+        if ($query->num_rows() > 0):
+            return $query;
+        else:
+            return false;
+        endif;
+    }
+
+    public function dadosCaixaDiario() {
+        $sql = "select * from relatorioCaixaDiario";
+        $query = $this->db->query($sql);
+        if ($query->num_rows() > 0):
+            return $query;
+        else:
+            return false;
+        endif;
+    }
+
+}

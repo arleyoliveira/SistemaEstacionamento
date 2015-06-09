@@ -16,8 +16,19 @@
 		  <!-- List group -->
 		  <ul>
 		    <li>Gerenciamento</li>
-		    <li>Caixa</li>  
-		    <li>Relátorio diário</li>  
+		    <li> 
+                        <div class="btn-group">
+                            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                              Caixa <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li> <?php echo anchor('gerenciador/iniciar_caixa', 'Iniciar') ?></li>
+                                <li> <?php echo anchor('gerenciador/finalizar_caixa', 'Finalizar') ?> </li>
+                            </ul>
+                          </div>
+
+                    </li>
+		    <li> <?php echo anchor('gerenciador/gerarRelatorioDiario', 'Relátorio diário') ?> </li>  
 		    <li>Relátorio mensal</li> 
 		    <li>Relátorio anual</li>   
 		  </ul>

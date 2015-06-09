@@ -14,7 +14,7 @@
 			echo DivUtil::openDivRow();
 			  echo form_open("gerenciador/saida");
 				echo DivUtil::openDivColMod("col-md-5");
-					echo form_label('PLACA (*)');
+					echo form_label('PLACA (*)') . "<br />";
 					echo form_input(array('id' => 'placa1', 'name' => 'veiculo', 'class' => 'form-control', 'placeholder' => 'ABC-0000'), set_value('veiculo'));		    
 			    echo DivUtil::closeDiv();
 				echo DivUtil::openDivColMod("col-md-3");

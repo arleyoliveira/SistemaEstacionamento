@@ -1,0 +1,27 @@
+<?php
+
+class ModalUtil {
+
+    public static function getModalBasic($title, $conteudo, $urlNo) {
+        $mod = '
+                <div class="modal fade" id="input">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title"> '.$title. '</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p> '.$conteudo.'&hellip;</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" Onclick="window.location.href="'.$urlNo.'"" class="btn btn-default" data-dismiss="modal">Não</button>
+                      <button type="submit" class="btn btn-primary">Sim</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+            ';
+        return $mod;
+    }
+}

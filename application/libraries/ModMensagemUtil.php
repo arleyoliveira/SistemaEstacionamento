@@ -19,5 +19,12 @@
 		public static function getCloseAlertMensagem($value='')
 		{
 			return '</div>';
+		}
+		
+		public static function getAlertMensagemDefault($classe){
+			$mod = '
+				<div class="alert '.$classe.'" role="alert">
+			';
+			return $mod;
 		} 
 	}

@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-	var controle = -1;
+   var controle = -1;
     $("#menu").click(function(){
         $("#divclose").slideToggle(1000);
         if(controle == 0){

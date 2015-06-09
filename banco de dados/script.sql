@@ -55,4 +55,17 @@ CREATE TABLE tipodecobranca(
 
 select g.cliente, g.veiculo, g.horaEntrada, c.categoria, c.valorHora, EXTRACT(HOUR FROM TIMEDIFF(now(), g.horaEntrada)) as horas, EXTRACT(MINUTE FROM TIMEDIFF(now(), g.horaEntrada)) as minuto, DATEDIFF(now() , g.horaEntrada) as dia from gerenciador g join veiculo v on g.veiculo = v.placa join categoria c on v.categoria = c.codigo;
 
+---- Relatorio diario view -----
+
+create view relatorioDiario as	
+    select veiculo, cliente, date(horaEntrada) as data, time(horaEntrada) as hora, valor
+    	from gerenciador where date(horaEntrada) = date(now()) and status = false;
+
+-- fim relatorio diario --
+
+-- Relatório caixa Diario
+	create view relatorioCaixaDiario as
+	select date(data) as data, time(data) as hora, saldoInicial, saldoFinal, date(now()) as dataFinal, time(now()) as horaFinal from caixa 		where date(data) = date(now());
+-- Fim relatorio caixa diário
+
 

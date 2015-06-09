@@ -19,8 +19,8 @@
 	echo form_label('Login') . "<br />";
 	echo form_input(array('name' => 'login', 'class' => 'form-control'), set_value('login', $query->login), 'disabled="disabled"') . "<br />";
 	echo form_hidden("idusuario", $query->id);
-	//echo '<button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-sm">Excluir registro</button>';
-	echo form_submit(array('name' => 'cadastrar', 'class' => 'btn btn-primary'), 'Excluir Registro' ). "<br />";	
+	echo '<button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-sm">Excluir registro</button>';
+	///echo form_submit(array('name' => 'cadastrar', 'class' => 'btn btn-primary'), 'Excluir Registro' ). "<br />";	
 ?>
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -46,7 +46,7 @@
 	</div>
 <script>
 	$('#myModal').on('shown.bs.modal', function () {
-	  $('#myInput').focus()
+	 // $('#myInput').focus()
 	})
 </script>
 <?php

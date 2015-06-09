@@ -27,6 +27,8 @@
 		const ICON_SEARCH = "glyphicon-search";
 		const ICON_GLASS = "glyphicon-glass";
 		const ICON_USD = "glyphicon-usd";
+                const ICON_UPLOAD = "glyphicon-upload";
+                const ICON_DOWNLOAD = "glyphicon-download";
 		
 		public static function getIcone($type){
 			return '<span class="glyphicon '.$type.'" aria-hidden="true"></span>';

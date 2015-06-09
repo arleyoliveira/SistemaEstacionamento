@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
-    <meta charset="utf-8">
+      <meta htpp-equiv="Contente-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -18,6 +18,12 @@
     <script src="<?php echo base_url('includes/my_js/jquery.maskedinput.js') ?>"></script>
     <!-- Latest compiled and minified JavaScript -->
 	<script src="<?php echo base_url('includes/bootstrap/js/bootstrap.min.js') ?>"></script>
+	
+	<link rel="stylesheet" href="<?php echo base_url('includes/jquery1/jquery-ui.css') ?>">
+	
+	<script src="<?php echo base_url('includes/jquery1/jquery-ui.js') ?>"></script>
+	
+	<script src="<?php echo base_url('includes/jquery1/external/jquery/jquery.js') ?>"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--

@@ -9,6 +9,12 @@
 		 		echo $MENSAGEM;
 		 echo ModMensagemUtil::getCloseAlertMensagem();
 	endif;
+        
+        if($this->session->flashdata('caixanaoiniciado')):
+		echo ModMensagemUtil::getAlertMensagemClose(ModMensagemUtil::ALERT_INFO);
+			echo $this->session->flashdata('caixanaoiniciado');
+		echo ModMensagemUtil::getCloseAlertMensagem();
+	endif;
 		
 	echo PainelUtil::getOpenPainel( IconsUtil::getIcone(IconsUtil::ICON_USD)." Iniciar caixa ", PainelUtil::PAINEL_WARNING);
 		echo form_open("gerenciador/iniciar_caixa");

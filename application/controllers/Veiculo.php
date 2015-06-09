@@ -39,6 +39,12 @@
 			);
 			$this->load->view('exibirDados',$dados);
 		}
-		
+                
+		public function search() {
+                    if (isset($_GET['term'])){
+                        $q = strtolower($_GET['term']);
+                        $this->VeiculoDAO->buscaVeiculoByPlaca($q);
+                    }
+                }
 	}
 		

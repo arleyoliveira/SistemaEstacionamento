@@ -55,10 +55,10 @@
 						$email = $linha->email;
 					endforeach;
 					$novousuario = array(
-	                   'nome'  => $nome,
-	                   'email'     => $email,
-	                   'esta_logado' => TRUE,
-              		 );
+                                            'nome'  => $nome,
+                                            'email'     => $email,
+                                            'esta_logado' => TRUE,
+                                         );
 					$this->session->set_userdata($novousuario);
 					redirect('gerenciador/entrada');
 				else:
