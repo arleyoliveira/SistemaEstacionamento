@@ -15,7 +15,7 @@
 	
 	public function do_insert($dados=NULL){		
 		if($dados != NULL):
-			$this->db->insert('gerenciador', $dados);
+			$this->db->insert('gerenciador', $dados);  
 			$this->session->set_flashdata('cadastrook', IconsUtil::getIcone(IconsUtil::ICON_OK) . ' Registro de entrada efetuado com sucesso!');
 			redirect('index.php/gerenciador/entrada');
 		endif;
